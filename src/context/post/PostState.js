@@ -1,8 +1,9 @@
 import React, { useReducer } from 'react'
 import { PostContext } from './postContext'
+
 import { postReducer } from './postReducer'
 
-const PostState = ({ children }) => {
+export const PostState = ({ children }) => {
   const initialState = {
     posts: [
       {
@@ -16,5 +17,3 @@ const PostState = ({ children }) => {
   const [state, dispatch] = useReducer(postReducer, initialState)
   return <PostContext.Provider value={{ posts: state.posts }}>{children}</PostContext.Provider>
 }
-
-export default PostState

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import Spinner from '../components/Spinner'
+import { PostContext } from '../context/post/postContext'
 
-const Posts = ({ posts = [], loading }) => {
+const Posts = ({ loading }) => {
+  const { posts } = useContext(PostContext)
+
   if (loading) {
     return <Spinner />
   }

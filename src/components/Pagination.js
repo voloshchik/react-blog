@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { PostContext } from '../context/post/postContext'
 
-const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
+const Pagination = ({ postsPerPage, paginate, currentPage }) => {
+  const { posts } = useContext(PostContext)
+  const totalPosts = posts.length
   const pageNumbers = []
 
   for (let i = 1; i < Math.ceil(totalPosts / postsPerPage); i++) {
