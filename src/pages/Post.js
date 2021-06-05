@@ -7,8 +7,8 @@ import { PostContext } from '../context/post/postContext'
 const Post = () => {
   const { posts } = useContext(PostContext)
 
-  let { id } = useParams()
-  const post = posts.find((post) => post.id == id)
+  let { id } = +useParams()
+  const post = posts.find((post) => post.id === id)
 
   if (!post) {
     return <p>loading....</p>

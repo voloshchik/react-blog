@@ -3,7 +3,7 @@ import { dataPosts } from '../../data'
 import { PostContext } from './postContext'
 
 import { postReducer } from './postReducer'
-import { ADD_POST } from './types'
+import { ADD_POST } from '../types'
 
 export const PostState = ({ children }) => {
   const initialState = {

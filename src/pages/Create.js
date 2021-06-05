@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
+import { AlertConstex } from '../context/alert/alertContext'
 
 import { PostContext } from '../context/post/postContext'
 
 const Create = () => {
   const { addPost } = useContext(PostContext)
+  const { show } = useContext(AlertConstex)
 
   const {
     register,
@@ -12,9 +14,10 @@ const Create = () => {
 
     formState: { errors },
   } = useForm({ mode: 'onBlur' })
+
   const onSubmit = (data, e) => {
-    console.log('data', data)
     addPost(data)
+    show('Post successfully created', 'success')
     e.target.reset()
   }
 
