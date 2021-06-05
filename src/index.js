@@ -4,10 +4,13 @@ import ReactDOM from 'react-dom'
 import './index.scss'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { PostState } from './context/post/PostState'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <PostState>
+      <App />
+    </PostState>
   </React.StrictMode>,
   document.getElementById('root')
 )

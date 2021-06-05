@@ -1,20 +1,14 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { useParams } from 'react-router'
 import { NavLink } from 'react-router-dom'
 
+import { PostContext } from '../context/post/postContext'
+
 const Post = () => {
-  const [post, setPost] = useState(null)
+  const { posts } = useContext(PostContext)
 
   let { id } = useParams()
-  useEffect(() => {
-    const fetchPost = async () => {
-      const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      setPost(res.data)
-    }
-
-    fetchPost()
-  }, [id])
+  const post = posts.find((post) => post.id == id)
 
   if (!post) {
     return <p>loading....</p>

@@ -1,19 +1,18 @@
 import React, { useReducer } from 'react'
+import { dataPosts } from '../../data'
 import { PostContext } from './postContext'
 
 import { postReducer } from './postReducer'
+import { ADD_POST } from './types'
 
 export const PostState = ({ children }) => {
   const initialState = {
-    posts: [
-      {
-        userId: 1,
-        id: 1,
-        title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-        body: 'quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto',
-      },
-    ],
+    posts: dataPosts,
   }
   const [state, dispatch] = useReducer(postReducer, initialState)
-  return <PostContext.Provider value={{ posts: state.posts }}>{children}</PostContext.Provider>
+
+  const addPost = (payload) => dispatch({ type: ADD_POST, payload })
+  return (
+    <PostContext.Provider value={{ posts: state.posts, addPost }}>{children}</PostContext.Provider>
+  )
 }

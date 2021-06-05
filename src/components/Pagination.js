@@ -4,10 +4,11 @@ import { PostContext } from '../context/post/postContext'
 
 const Pagination = ({ postsPerPage, paginate, currentPage }) => {
   const { posts } = useContext(PostContext)
+
   const totalPosts = posts.length
   const pageNumbers = []
 
-  for (let i = 1; i < Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i)
   }
   return (
