@@ -11,7 +11,7 @@ import { PostContext } from './context/post/postContext'
 import Alert from './components/Alert'
 import AlertState from './context/alert/AlertState'
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading] = useState(false)
   const { posts } = useContext(PostContext)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -24,8 +24,6 @@ function App() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
-
-  // get current post
 
   return (
     <AlertState>

@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import Spinner from '../components/Spinner'
-import { PostContext } from '../context/post/postContext'
 
 const Posts = ({ loading, currentPost }) => {
   if (loading) {
