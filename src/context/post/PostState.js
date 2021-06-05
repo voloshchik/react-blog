@@ -5,7 +5,7 @@ import { PostContext } from './postContext'
 import { postReducer } from './postReducer'
 import { ADD_POST } from '../types'
 
-export const PostState = ({ children }) => {
+const PostState = ({ children }) => {
   const initialState = {
     posts: dataPosts,
   }
@@ -16,3 +16,4 @@ export const PostState = ({ children }) => {
     <PostContext.Provider value={{ posts: state.posts, addPost }}>{children}</PostContext.Provider>
   )
 }
+export default PostState

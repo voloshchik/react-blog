@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import './App.css'
 import Navbar from './components/Navbar'
 import Create from './pages/Create'
 import Posts from './pages/Posts'
@@ -10,6 +9,8 @@ import Pagination from './components/Pagination'
 import { PostContext } from './context/post/postContext'
 import Alert from './components/Alert'
 import AlertState from './context/alert/AlertState'
+import './App.css'
+
 function App() {
   const [loading] = useState(false)
   const { posts } = useContext(PostContext)
@@ -30,7 +31,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <div className='container pt-4'>
-          <Alert alert={{ text: 'Test alert' }} />
+          <Alert />
           <Switch>
             <Route exact path='/'>
               <Posts loading={loading} currentPost={currentPost} />
